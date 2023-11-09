@@ -48,6 +48,6 @@ class Lcg {
     }
 }
 
-public class Task3Constructor {
+public class Task3LCG {
 
 }
