@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class Tasks {
     public static void main(String[] args) {
-        /* Select & Uncomment ONE method to run.. */
+        /* Uncomment ONE method to run.. */
 
-        // task1Basic();
+        task1Basic();
         // task1Advance();
         // task2Basic();
         // task2Advance();
         // task3Basic();
-        task3Advance();
+        // task3Advance();
     }
 
     /* -------------------------task 1(Basic)----------------------------- */
@@ -113,6 +113,7 @@ public class Tasks {
     /* -------------------------task 2(Advance)------------------------- */
 
     public static void task2Advance() {
+        // Range number from 1 - 1000000
         int rangeStart = 1;
         int rangeEnd = 1000000;
 
@@ -138,6 +139,7 @@ public class Tasks {
             int digit = Character.getNumericValue(digitChar);
             sum += digit;
 
+            // Check if sum is odd or even and update accordingly
             if (sum % 2 == 1) {
                 sum = (sum - 1) / 2;
             } else {
@@ -151,20 +153,26 @@ public class Tasks {
     /* -------------------------task 3(Basic)------------------------- */
 
     public static void task3Basic() {
+        // Set the LCG value
         Lcg lcg = new Lcg(65536, 137, 1, 0);
         int primeIndex = 100;
         long nthPrime = lcg.nthPrime(primeIndex);
 
+        // Display the prime number
         System.out.printf("The %dth prime number in the LCG sequence is: %d\n", primeIndex, nthPrime);
     }
 
     /* -------------------------task 3(Advance)------------------------- */
 
     public static void task3Advance() {
+
         try {
+            // Fill in the string encryption
             System.out.println("Enter a string to be encrypted: ");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
+
+            // Display the String, encrypted string & decrypted string
             System.out.println("Entered string: " + input);
             String encrypted = encrypt(input);
             System.out.println("String after encryption: " + encrypted);
@@ -177,6 +185,7 @@ public class Tasks {
     }
 
     public static String encrypt(String plainText) throws Exception {
+        // Encryption logic
         Lcg lcg = new Lcg(256, 11, 1, 0);
         byte[] bytes = plainText.getBytes("UTF-8");
         int len = bytes.length;
@@ -188,6 +197,7 @@ public class Tasks {
     }
 
     public static String decrypt(String base64EncodedValue) throws Exception {
+        // Decryption logic
         Lcg lcg = new Lcg(256, 11, 1, 0);
         byte[] decodedByte = Base64.getDecoder().decode(base64EncodedValue.getBytes("UTF-8"));
         int len = decodedByte.length;
